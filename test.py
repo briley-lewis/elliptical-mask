@@ -11,10 +11,12 @@ for x in range(0,281):
             zeros[x,y]=1
 
 import matplotlib.pyplot as plt
-plt.imshow(zeros)
-plt.savefig('test.png')
+#plt.imshow(zeros)
+#plt.savefig('test.png')
 
 import scipy.ndimage
-im2 = scipy.ndimage.rotate(zeros,angle=120)
+im2 = scipy.ndimage.rotate(zeros,angle=40,order=0,reshape=False)
+im2[np.where(np.isnan(im2)==True)] = 0
 plt.imshow(im2)
+plt.colorbar()
 plt.savefig('test2.png')
