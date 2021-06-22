@@ -13,3 +13,8 @@ for x in range(0,281):
 import matplotlib.pyplot as plt
 plt.imshow(zeros)
 plt.savefig('test.png')
+
+import scipy.ndimage
+im2 = scipy.ndimage.rotate(zeros,angle=120)
+plt.imshow(im2)
+plt.savefig('test2.png')
