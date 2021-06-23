@@ -1,13 +1,13 @@
 """playground for trying new things; please ignore"""
 
-def test(x,y):
-    """Test function to see if I can write a Napoleon-style docstring
+def test_fun(x,y):
+    """Test function
 
-    Adds x and y and returns their sum.
+    Adds x and y and returns their sum. Trying to see if I can write a Napoleon-style docstring.
 
     Args:
-        x (float): any number
-        y (float): any number
+        x (float): any number.
+        y (float): any number.
 
     Returns:
         float: sum """
