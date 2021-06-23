@@ -1,3 +1,18 @@
+"""playground for trying new things; please ignore"""
+
+def test(x,y):
+    """Test function to see if I can write a Napoleon-style docstring
+
+    Adds x and y and returns their sum.
+
+    Args:
+        x (float): any number
+        y (float): any number
+
+    Returns:
+        float: sum """
+    return x+y
+
 import numpy as np
 
 center = [142,142]
