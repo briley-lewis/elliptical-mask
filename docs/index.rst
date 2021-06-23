@@ -10,11 +10,35 @@ Welcome to elliptical-mask's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
-
 Indices and tables
 ==================
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+Attribution:
+++++++++++++
+
+Zenodo DOI coming soon
+
+Contributing:
++++++++++++++
+
+Briley Lewis, Ronald Lopez, Elizabeth Teng, Jason Williams
+(Written as part of Code/Astro 2021)
+
+
+**Planned updates:**
+
+Make the code work and make it pip installable!
+
+
+Changelog:
+++++++++++
+
+**0.1.0 (2021-06-23)**
+
+- Code under development!
+
+
