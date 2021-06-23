@@ -8,3 +8,4 @@ Documentation at https://elliptical-mask.readthedocs.io/en/latest/index.html
 ![GitHub contributors](https://img.shields.io/github/contributors/briley-lewis/elliptical-mask)
 ![GitHub last commit](https://img.shields.io/github/last-commit/briley-lewis/elliptical-mask)
 ![GitHub language count](https://img.shields.io/github/languages/count/briley-lewis/elliptical-mask)
+![GitHub](https://img.shields.io/github/license/briley-lewis/elliptical-mask)
