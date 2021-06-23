@@ -9,3 +9,5 @@ Documentation at https://elliptical-mask.readthedocs.io/en/latest/index.html
 ![GitHub last commit](https://img.shields.io/github/last-commit/briley-lewis/elliptical-mask)
 ![GitHub language count](https://img.shields.io/github/languages/count/briley-lewis/elliptical-mask)
 ![GitHub](https://img.shields.io/github/license/briley-lewis/elliptical-mask)
+[![DOI](https://zenodo.org/badge/379351745.svg)](https://zenodo.org/badge/latestdoi/379351745)
+
