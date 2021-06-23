@@ -3,4 +3,3 @@ Software project for Code / Astro 2021 Workshop — Briley Lewis, Ronald Lopez, 
 
 Documentation at https://elliptical-mask.readthedocs.io/en/latest/index.html
 
-https://img.shields.io/readthedocs/elliptical-mask
