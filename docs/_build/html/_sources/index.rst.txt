@@ -12,9 +12,9 @@ Welcome to imgmasks' documentation!
 
 Modules
 +++++++
-* `ellipse <https://google.com>`_
-* `circle <https://google.com>`_
-* `annulus <https://google.com>`_
+* `ellipse <https://elliptical-mask.readthedocs.io/en/latest/ellipse.html>`_
+* `circle <https://elliptical-mask.readthedocs.io/en/latest/circle.html>`_
+* `annulus <https://elliptical-mask.readthedocs.io/en/latest/annulus.html>`_
 
 Attribution:
 ++++++++++++

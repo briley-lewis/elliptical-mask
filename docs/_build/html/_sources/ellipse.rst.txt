@@ -1,5 +1,5 @@
-Ellipse classes
-===============
+Ellipse
+=======
 
 Function to generate an elliptical mask and apply it to an image
 
