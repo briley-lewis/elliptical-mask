@@ -96,7 +96,6 @@ class Ellipse():
 
         new_image = self.make_ellipse() * image
 
-<<<<<<< HEAD
         return new_image
 
     
@@ -122,6 +121,3 @@ class Ellipse():
         img=mpimg.imread(filename)
         
         return rgb2gray(img)
-=======
-        return new_image
->>>>>>> 2ffa971d7d31d5914cbfd355fb1f6fd4146d00a1
