@@ -20,7 +20,7 @@ Indices and tables
 Attribution:
 ++++++++++++
 
-Zenodo DOI coming soon
+Zenodo DOI: https://doi.org/10.5281/zenodo.5021481
 
 Contributing:
 +++++++++++++
