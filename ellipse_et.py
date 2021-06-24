@@ -23,12 +23,12 @@ class Ellipse():
         """
         
         self.center = center
-        self.a = a
-        self.b = b
+        self.a = b  # fix major and minor axes, having self.a=a makes it vertical instead of horizontal! 
+        self.b = a
         self.theta = theta
 
-        x = np.arange(0,image_size[0],1)
-        y = np.arange(0,image_size[1],1)
+        y = np.arange(0,image_size[0],1)
+        x = np.arange(0,image_size[1],1) # explain this y dimension first
         self.pixel_array = np.meshgrid(x,y)
 
     def make_ellipse(self):
@@ -62,6 +62,15 @@ class Ellipse():
 
         return new_image
 
-test_image = np.random.rand(300,600)
+test_image = 255 * np.random.rand(300,600)
+
+e = Ellipse((100,100),30, 60, test_image.shape, np.pi/6) #fix center coordinates (maybe backwards?)
+masked_image = e.apply_elliptical_mask(test_image)
+
+plt.imshow(masked_image,origin='lower')
+
+plt.colorbar()
+#plt.savefig("mask_test.png")
+plt.show()
 
 
