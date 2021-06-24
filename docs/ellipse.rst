@@ -11,15 +11,15 @@ Sets parameters for creation of an ellipse
 
 **Parameters**:
         
-        **center** (tuple):     center coordinates of the ellipse, origin is (0,0).
+        **center** (tuple):     center coordinates of the ellipse (y,x), origin is (0,0).
         
-        **a** (float):          semi-major axis
+        **a** (float):          semi-major axis; a must be > b
         
         **b** (float):          semi-minor axis
         
-        **image_size** (tuple): size of the array. Must be >= a,b
+        **image_size** (tuple): size of the array (y,x). Must be >= a,b
         
-        **theta** (float):      Angle to rotate ellipse
+        **theta** (float):      Angle to rotate ellipse in degrees
 
 **Returns**:
         None
