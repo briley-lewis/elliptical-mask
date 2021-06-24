@@ -13,7 +13,7 @@ class Circle():
         Args:
             center (tuple):     center coordinates of the ellipse, origin is (0,0).
             r (float):          radius
-            image_size (tuple): size of the array. Must be >= r
+            image_size (tuple): size of the array (y,x). Must be >= r 
         
         Returns:
             None
@@ -26,6 +26,9 @@ class Circle():
         y = np.arange(0,image_size[0],1)
         x = np.arange(0,image_size[1],1) # explain this y dimension first
         self.pixel_array = np.meshgrid(x,y)
+
+        if image_size[0]<r or image_size[1]<r:
+            raise ValueError('Image size must be greater than or equal to radius')
 
     def make_circle(self):
         """ make_circle
@@ -48,8 +51,8 @@ class Circle():
                 Args:
                     center (tuple): center coordinates of the ellipse, origin is (0,0).
                     r (float): radius
-                    x (array-like): meshgrid of x coordinates
-                    y (array-like): meshgrid of y coordinates
+                    x (array-like): 2d array of x coordinates
+                    y (array-like): 2d array of y coordinates
 
                 Returns:
                     array-like: r_norm, same size as image size
@@ -58,7 +61,6 @@ class Circle():
             x = xy[0] ##breaks pixel array up into x and y
             y = xy[1]
             r_norm = ((x-center[1])**2 + (y-center[0])**2)/(r**2)
-            ##need to write test case to figure out which index should be x and which should be y
             return r_norm
 
 
@@ -79,7 +81,7 @@ class Circle():
             image (array-like): input image to mask
 
         Returns:
-            array-like: masked image (new_image)
+            array-like: masked image same size as input image (new_image)
         
         """
 

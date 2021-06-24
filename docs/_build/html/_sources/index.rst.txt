@@ -3,19 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to elliptical-mask's documentation!
+Welcome to imgmasks' documentation!
 ===========================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Modules
++++++++
+* `ellipse <https://elliptical-mask.readthedocs.io/en/latest/ellipse.html>`_
+* `circle <https://elliptical-mask.readthedocs.io/en/latest/circle.html>`_
+* `annulus <https://elliptical-mask.readthedocs.io/en/latest/annulus.html>`_
 
 Attribution:
 ++++++++++++
