@@ -21,7 +21,7 @@ Sets parameters for creation of an ellipse
 **Returns**:
         None
 
-:module:`imgmasks.ellipse.make_ellipse(self)`
+:class:`imgmasks.ellipse.make_ellipse(self)`
 
 Creates ellipse on a grid using the equation and initialization parameters
 
@@ -33,7 +33,7 @@ Creates ellipse on a grid using the equation and initialization parameters
 
 
 
-:module:`imgmasks.ellipse.apply_elliptical_mask(image)`
+:class:`imgmasks.ellipse.apply_elliptical_mask(image)`
 
 Applies mask to an image
 
