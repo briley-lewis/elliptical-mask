@@ -23,10 +23,13 @@ class Ellipse():
         """
         
         self.center = center
-        self.a = a
-        self.b = b
-        self.ellipse = np.zeros(image_size)
+        self.a = b  # fix major and minor axes, having self.a=a makes it vertical instead of horizontal! 
+        self.b = a
         self.theta = theta
+
+        y = np.arange(0,image_size[0],1)
+        x = np.arange(0,image_size[1],1) # explain this y dimension first
+        self.pixel_array = np.meshgrid(x,y)
 
     def make_ellipse(self):
         """ make_ellipse
@@ -37,85 +40,64 @@ class Ellipse():
             self (object):  Ellipse object
 
         Returns:
-            None
+            type: r_grid (what type is the output - meshgrid / single array?)
         
         """
 
+        def ellipse_equation(center, a, b, x, y , theta):
+            """ ellipse_equation
+
+                Describes ellipse
+
+                Args:
+                    center (tuple):     center coordinates of the ellipse, origin is (0,0).
+                    a (float):          semi-major axis
+                    b (float):          semi-minor axis
+                    image_size (tuple): size of the array. Must be >= a,b
+                    theta (float):      Angle to rotate ellipse
+
+                Returns:
+                    type: r
+                
+                """
+            r = (((x - center[0]) * np.cos(theta) + (y - center[1]) * np.sin(theta)) ** 2 / a ** 2) + ((( x - center[0]) * np.sin(theta) - (y - center[1]) * np.cos(theta)) ** 2 / b ** 2)
+            return r
 
 
-    
+        r_grid = ellipse_equation(self.center, self.a, self.b, self.pixel_array[0], self.pixel_array[1], self.theta)
+        r_grid[r_grid<1.0] = 1
+        r_grid[r_grid>1.0] = 0
 
-class Mask(Ellipse):
+        return r_grid
 
-    def __init__(self, center, a, b, image_size, theta = 0):
-        """ Mask
-
-        Set parameters for Elliptical Mask.
-
-        Args:
-            Ellipse (object): Parent object. Takes in center, a,b, image_size, theta
-
-        Returns:
-            None
-
-        """
-        super().__init__(center, a, b, image_size, theta = 0)
-        self.mask = np.zeros(image_size)
-
-
-    def make_elliptical_mask(self):
-        """ make_elliptical_mask
-
-        Creates a binary elliptical mask, where values are 1 inside and 0 outside the ellipse
-        
-        Args: 
-            None
-
-        Returns:
-            None
-
-        """
-
-        
-        self.make_ellipse()
-        #set self.mask equal to 1 inside and 0 outside of self.ellipse
-        
        
     def apply_elliptical_mask(self, image):
+        """ apply_elliptical_mask
 
-        self.make_elliptical_mask()
-
-        new_image = self.mask * image
-
-    def __add__(self, other):
-
-        """__add__
-
-        This may/may not be useful, just thought it was cool. Overrides the add function so that you can
-        combine masks using 'Mask 1 + Mask 2'. Curently returns an array, should probably return a Mask object
-        so that you can use 'apply_elliptical_mask'
+        Applies mask to an image
 
         Args:
-            self (Mask object): Initial Mask object
-            other (Mask object):Other Mask object
+            self (object):  Ellipse object
+            image (array-like): input image to mask
 
-        Returns: 
-            2-d array
+        Returns:
+            array-like: masked image (new_image)
         
         """
 
-        if self.mask.shape == other.mask.shape:
-            
-            new_mask = self.mask + other.mask
-            rows, cols = np.where(new_mask > 1)
-            new_mask[rows, cols] = 1
+        new_image = self.make_ellipse() * image
 
-            return new_mask
+        return new_image
 
-        else:
+test_image = 255 * np.random.rand(300,600)
 
-            raise Exception("Mask arrays must be same size!")
+e = Ellipse((100,100),30, 60, test_image.shape, np.pi/6) #fix center coordinates (maybe backwards?)
+masked_image = e.apply_elliptical_mask(test_image)
 
+plt.imshow(masked_image,origin='lower')
 
+plt.colorbar()
+#plt.savefig("mask_test.png")
+plt.show()
 
 
