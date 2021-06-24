@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
-
+import matplotlib.image as mpimg
 
 class Ellipse():
 
@@ -90,4 +89,26 @@ class Ellipse():
 
         return new_image
 
+    
+    def png_to_array(self, filename):
 
+
+        """ 
+
+        Converts PNG file (located in imgmasks directory) into grayscale array passable in apply_elliptical_mask
+
+        Args:
+            self (object): Ellipse object
+            filename (string): string containing file name (example: "HLTau.png")
+        
+        Returns:
+            bw_image (array): image array in black and white
+
+        """
+        
+        def rgb2gray(rgb):
+            return np.dot(rgb[...,:3], [0.2989, 0.5870, 0.1140])
+
+        img=mpimg.imread(filename)
+        
+        return rgb2gray(img)
