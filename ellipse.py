@@ -40,7 +40,7 @@ class Ellipse():
             self (object):  Ellipse object
 
         Returns:
-            type: r_grid (what type is the output - meshgrid / single array?)
+            array-like: r_grid binary mask with parameters of ellipse
         
         """
 
@@ -53,11 +53,12 @@ class Ellipse():
                     center (tuple):     center coordinates of the ellipse, origin is (0,0).
                     a (float):          semi-major axis
                     b (float):          semi-minor axis
-                    image_size (tuple): size of the array. Must be >= a,b
+                    x (array-like): meshgrid of x coordinates
+                    y (array-like): meshgrid of y coordinates
                     theta (float):      Angle to rotate ellipse
 
                 Returns:
-                    type: r
+                    array-like: r, same size as image_size
                 
                 """
             r = (((x - center[0]) * np.cos(theta) + (y - center[1]) * np.sin(theta)) ** 2 / a ** 2) + ((( x - center[0]) * np.sin(theta) - (y - center[1]) * np.cos(theta)) ** 2 / b ** 2)
@@ -88,16 +89,5 @@ class Ellipse():
         new_image = self.make_ellipse() * image
 
         return new_image
-
-test_image = 255 * np.random.rand(300,600)
-
-e = Ellipse((100,100),30, 60, test_image.shape, np.pi/6) #fix center coordinates (maybe backwards?)
-masked_image = e.apply_elliptical_mask(test_image)
-
-plt.imshow(masked_image,origin='lower')
-
-plt.colorbar()
-#plt.savefig("mask_test.png")
-plt.show()
 
 

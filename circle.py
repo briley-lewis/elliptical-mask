@@ -40,7 +40,7 @@ class Circle():
         
         """
 
-        def circle_equation(center, r, x, y ):
+        def circle_equation(center, r, xy):
             """ circle_equation
 
                 Describes circle
@@ -48,16 +48,21 @@ class Circle():
                 Args:
                     center (tuple): center coordinates of the ellipse, origin is (0,0).
                     r (float): radius
-                    image_size (tuple): size of the array. Must be >= r
+                    x (array-like): meshgrid of x coordinates
+                    y (array-like): meshgrid of y coordinates
 
                 Returns:
-                    type: r_grid
+                    array-like: r_norm, same size as image size
         
                 """
-            pass ##need to update with equation
+            x = xy[0] ##breaks pixel array up into x and y
+            y = xy[1]
+            r_norm = ((x-center[1])**2 + (y-center[0])**2)/(r**2)
+            ##need to write test case to figure out which index should be x and which should be y
+            return r_norm
 
 
-        r_grid = circle_equation(self.center, self.r, self.pixel_array[0], self.pixel_array[1])
+        r_grid = circle_equation(self.center, self.r, self.pixel_array)
         r_grid[r_grid<1.0] = 1
         r_grid[r_grid>1.0] = 0
 
@@ -82,15 +87,5 @@ class Circle():
 
         return new_image
 
-test_image = 255 * np.random.rand(300,600)
-
-c = Circle((100,100),30, 60, test_image.shape, np.pi/6) #fix center coordinates (maybe backwards?)
-masked_image = c.apply_circular_mask(test_image)
-
-plt.imshow(masked_image,origin='lower')
-
-plt.colorbar()
-plt.savefig("mask_test_circ.png")
-plt.show()
 
 
