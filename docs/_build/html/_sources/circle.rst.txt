@@ -1,7 +1,5 @@
-.. module:: elliptical-mask
+:orphan:
 
 Circle class
-=========
+============
 
-.. automodule:: elliptical-mask.circle
-        :members:
