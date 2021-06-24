@@ -40,11 +40,26 @@ class Ellipse():
             self (object):  Ellipse object
 
         Returns:
-            None
+            type: r_grid (what type is the output - meshgrid / single array?)
         
         """
 
         def ellipse_equation(center, a, b, x, y , theta):
+            """ ellipse_equation
+
+                Describes ellipse
+
+                Args:
+                    center (tuple):     center coordinates of the ellipse, origin is (0,0).
+                    a (float):          semi-major axis
+                    b (float):          semi-minor axis
+                    image_size (tuple): size of the array. Must be >= a,b
+                    theta (float):      Angle to rotate ellipse
+
+                Returns:
+                    type: r
+                
+                """
             r = (((x - center[0]) * np.cos(theta) + (y - center[1]) * np.sin(theta)) ** 2 / a ** 2) + ((( x - center[0]) * np.sin(theta) - (y - center[1]) * np.cos(theta)) ** 2 / b ** 2)
             return r
 
@@ -57,6 +72,18 @@ class Ellipse():
 
        
     def apply_elliptical_mask(self, image):
+        """ apply_elliptical_mask
+
+        Applies mask to an image
+
+        Args:
+            self (object):  Ellipse object
+            image (array-like): input image to mask
+
+        Returns:
+            array-like: masked image (new_image)
+        
+        """
 
         new_image = self.make_ellipse() * image
 
