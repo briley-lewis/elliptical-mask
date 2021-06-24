@@ -1,0 +1,10 @@
+README.md
+setup.py
+imgmask/__init__.py
+imgmask/circle.py
+imgmask/ellipse.py
+imgmask.egg-info/PKG-INFO
+imgmask.egg-info/SOURCES.txt
+imgmask.egg-info/dependency_links.txt
+imgmask.egg-info/requires.txt
+imgmask.egg-info/top_level.txt
