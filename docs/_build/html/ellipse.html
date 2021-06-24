@@ -85,10 +85,7 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Ellipse</a><ul>
-<li><a class="reference internal" href="#ellipse-class">Ellipse Class</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#">Ellipse</a></li>
 </ul>
 </div>
             
@@ -159,17 +156,17 @@
   <div class="section" id="ellipse">
 <h1>Ellipse<a class="headerlink" href="#ellipse" title="Permalink to this headline">¶</a></h1>
 <p>Module for generating an elliptical mask and applying it to an image.</p>
-<div class="section" id="ellipse-class">
-<h2>Ellipse Class<a class="headerlink" href="#ellipse-class" title="Permalink to this headline">¶</a></h2>
 <p><code class="xref py py-class docutils literal notranslate"><span class="pre">imgmasks.ellipse(center,</span> <span class="pre">a,</span> <span class="pre">b,</span> <span class="pre">image_size,</span> <span class="pre">theta=0)</span></code></p>
 <p>Sets parameters for creation of an ellipse</p>
+<p><strong>Parameters</strong>:</p>
+<blockquote>
+<div><p><strong>center</strong> (tuple):     center coordinates of the ellipse, origin is (0,0).</p>
+<p><strong>a</strong> (float):          semi-major axis</p>
+<p><strong>b</strong> (float):          semi-minor axis</p>
+<p><strong>image_size</strong> (tuple): size of the array. Must be &gt;= a,b</p>
+<p><strong>theta</strong> (float):      Angle to rotate ellipse</p>
+</div></blockquote>
 <dl class="simple">
-<dt><strong>Parameters</strong>:</dt><dd><p><strong>center</strong> (tuple):     center coordinates of the ellipse, origin is (0,0).
-<strong>a</strong> (float):          semi-major axis
-<strong>b</strong> (float):          semi-minor axis
-<strong>image_size</strong> (tuple): size of the array. Must be &gt;= a,b
-<strong>theta</strong> (float):      Angle to rotate ellipse</p>
-</dd>
 <dt><strong>Returns</strong>:</dt><dd><p>None</p>
 </dd>
 </dl>
@@ -178,19 +175,22 @@
 <dl class="simple">
 <dt><strong>Args</strong>:</dt><dd><p><strong>self</strong> (object):      Ellipse object</p>
 </dd>
-<dt><strong>Returns</strong>:</dt><dd><p><strong>r_grid</strong> (array):     array of “r” values for each pixel: pixels with r&lt;1 are inside the ellipse, and pixels with r&gt;1 are outside the ellipse.</p>
-</dd>
 </dl>
+<p><strong>Returns</strong>:</p>
+<blockquote>
+<div><p><strong>r_grid</strong> (array):     array of “r” values for each pixel: pixels with r&lt;1 are inside the ellipse, and pixels with r&gt;1 are outside the ellipse.</p>
+</div></blockquote>
 <p><code class="xref py py-class docutils literal notranslate"><span class="pre">imgmasks.ellipse.apply_elliptical_mask(image)</span></code></p>
 <p>Applies mask to an image</p>
+<p><strong>Args</strong>:</p>
+<blockquote>
+<div><p><strong>self</strong> (object):      Ellipse object</p>
+<p><strong>image</strong> (array):      input image to mask</p>
+</div></blockquote>
 <dl class="simple">
-<dt><strong>Args</strong>:</dt><dd><p><strong>self</strong> (object):      Ellipse object
-<strong>image</strong> (array):      input image to mask</p>
-</dd>
 <dt><strong>Returns</strong>:</dt><dd><p><strong>new_image</strong> (array):  masked image</p>
 </dd>
 </dl>
-</div>
 </div>
 
 
