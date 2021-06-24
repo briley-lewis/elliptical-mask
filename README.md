@@ -11,4 +11,4 @@ Documentation at https://elliptical-mask.readthedocs.io/en/latest/index.html
 ![GitHub](https://img.shields.io/github/license/briley-lewis/elliptical-mask)
 [![DOI](https://zenodo.org/badge/379351745.svg)](https://zenodo.org/badge/latestdoi/379351745)
 
-install me with `pip install imgmasks` :)
+install me with `pip install imgmasks` :) https://pypi.org/project/imgmasks/0.2/
