@@ -9,7 +9,7 @@ def get_requires():
 
 setup(
 name='imgmask',
-version='0.1.1',
+version='0.2',
 description='makes arbitrary elliptical, circular, and annular binary masks for image processing',
 url='https://github.com/briley-lewis/elliptical-mask',
 license='MIT',
