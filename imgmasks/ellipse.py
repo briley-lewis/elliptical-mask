@@ -120,4 +120,8 @@ class Ellipse():
 
         img=mpimg.imread(filename)
         
-        return rgb2gray(img)
+        if len(img.shape)==3:
+            return rgb2gray(img)
+
+        elif len(img.shape)==2:
+            return img
