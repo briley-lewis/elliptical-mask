@@ -30,11 +30,15 @@ Briley Lewis, Ronald Lopez, Elizabeth Teng, Jason Williams
 
 **Planned updates:**
 
-Make the code work and make it pip installable!
+Adding functionality for annuli in addition to circles and ellipses
 
 
 Changelog:
 ++++++++++
+
+**0.2.0 (2021-06-23)**
+
+- Basic functionality done, but still working out the kinks
 
 **0.1.0 (2021-06-23)**
 
