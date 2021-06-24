@@ -11,11 +11,11 @@ class Ellipse():
         Sets parameters for creation of an ellipse.
 
         Args:
-            center (tuple):     center coordinates of the ellipse, origin is (0,0).
-            a (float):          semi-major axis
+            center (tuple):     center coordinates of the ellipse (y,x), origin is (0,0).
+            a (float):          semi-major axis. Must be a > b
             b (float):          semi-minor axis
-            image_size (tuple): size of the array. Must be >= a,b
-            theta (float):      Angle to rotate ellipse
+            image_size (tuple): size of the array (y,x). Must be >= b,a
+            theta (float):      angle to rotate ellipse (degrees)
         
         Returns:
             None
@@ -23,13 +23,20 @@ class Ellipse():
         """
         
         self.center = center
-        self.a = b  # fix major and minor axes, having self.a=a makes it vertical instead of horizontal! 
-        self.b = a
-        self.theta = theta
+        self.a = a
+        self.b = b
+        
+        self.theta = np.deg2rad(theta)
 
+        x = np.arange(0,image_size[1],1)
         y = np.arange(0,image_size[0],1)
-        x = np.arange(0,image_size[1],1) # explain this y dimension first
         self.pixel_array = np.meshgrid(x,y)
+
+        if a<=b:
+            raise ValueError("Invalid input: 'a' must be greater than 'b'")
+
+        if a > image_size[1] or b > image_size[0]:
+            raise ValueError("Invalid input: b,a must be >= image_size (y,x)")
 
     def make_ellipse(self):
         """ make_ellipse
@@ -40,32 +47,34 @@ class Ellipse():
             self (object):  Ellipse object
 
         Returns:
-            array-like: r_grid binary mask with parameters of ellipse
+            array-like: r_grid binary mask with parameters of ellipse with shape 'image_size'
         
         """
 
-        def ellipse_equation(center, a, b, x, y , theta):
+        def ellipse_equation(center, a, b, xy , theta):
             """ ellipse_equation
 
                 Describes ellipse
 
                 Args:
-                    center (tuple):     center coordinates of the ellipse, origin is (0,0).
-                    a (float):          semi-major axis
-                    b (float):          semi-minor axis
-                    x (array-like): meshgrid of x coordinates
-                    y (array-like): meshgrid of y coordinates
-                    theta (float):      Angle to rotate ellipse
+                    center (tuple): center coordinates of the ellipse, origin is (0,0).
+                    a (float):      semi-major axis
+                    b (float):      semi-minor axis
+                    x (array-like): 2d numpy array of x coordinates for each pixel in image with shape 'image_size'
+                    y (array-like): 2d numpy array of y coordinates for each pixel in image with shape 'image_size'
+                    theta (float):  Angle to rotate ellipse (degrees)
 
                 Returns:
-                    array-like: r, same size as image_size
+                    array-like: r_grid same size as image_size
                 
                 """
-            r = (((x - center[0]) * np.cos(theta) + (y - center[1]) * np.sin(theta)) ** 2 / a ** 2) + ((( x - center[0]) * np.sin(theta) - (y - center[1]) * np.cos(theta)) ** 2 / b ** 2)
+            x = xy[0]
+            y = xy[1]
+            r = (((x - center[1]) * np.cos(theta) + (y - center[0]) * np.sin(theta)) ** 2 / a ** 2) + ((( x - center[1]) * np.sin(theta) - (y - center[0]) * np.cos(theta)) ** 2 / b ** 2)
             return r
 
 
-        r_grid = ellipse_equation(self.center, self.a, self.b, self.pixel_array[0], self.pixel_array[1], self.theta)
+        r_grid = ellipse_equation(self.center, self.a, self.b, self.pixel_array, self.theta)
         r_grid[r_grid<1.0] = 1
         r_grid[r_grid>1.0] = 0
 
@@ -89,5 +98,3 @@ class Ellipse():
         new_image = self.make_ellipse() * image
 
         return new_image
-
-
