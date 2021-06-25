@@ -44,5 +44,5 @@ Applies mask to an image
 **Returns**:
         **new_image** (array):  masked image
         
-=======
+
 

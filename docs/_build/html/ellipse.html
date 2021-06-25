@@ -160,11 +160,11 @@
 <p>Sets parameters for creation of an ellipse</p>
 <p><strong>Parameters</strong>:</p>
 <blockquote>
-<div><p><strong>center</strong> (tuple):     center coordinates of the ellipse, origin is (0,0).</p>
-<p><strong>a</strong> (float):          semi-major axis</p>
+<div><p><strong>center</strong> (tuple):     center coordinates of the ellipse (y,x), origin is (0,0).</p>
+<p><strong>a</strong> (float):          semi-major axis; a must be &gt; b</p>
 <p><strong>b</strong> (float):          semi-minor axis</p>
-<p><strong>image_size</strong> (tuple): size of the array. Must be &gt;= a,b</p>
-<p><strong>theta</strong> (float):      Angle to rotate ellipse</p>
+<p><strong>image_size</strong> (tuple): size of the array (y,x). Must be &gt;= a,b</p>
+<p><strong>theta</strong> (float):      Angle to rotate ellipse in degrees</p>
 </div></blockquote>
 <dl class="simple">
 <dt><strong>Returns</strong>:</dt><dd><p>None</p>

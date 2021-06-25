@@ -155,6 +155,39 @@
             
   <div class="section" id="circle-class">
 <h1>Circle class<a class="headerlink" href="#circle-class" title="Permalink to this headline">¶</a></h1>
+<p>Function to generate an elliptical mask and apply it to an image</p>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">imgmasks.circle(self,</span> <span class="pre">center,</span> <span class="pre">r,</span> <span class="pre">image_size)</span></code></p>
+<p><strong>Parameters</strong>:</p>
+<blockquote>
+<div><p><strong>center</strong> (tuple):     center coordinates of the circle, origin is (0,0).</p>
+<p><strong>r</strong> (float):          radius</p>
+<p><strong>image_size</strong> (tuple): size of the array. Must be &gt;= r</p>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>Returns</strong>:</dt><dd><p>None</p>
+</dd>
+</dl>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">imgmasks.circle.make_circle(self)</span></code></p>
+<p>Creates circle on a grid using the equation and initialization parameters</p>
+<dl class="simple">
+<dt><strong>Args</strong>:</dt><dd><p><strong>self</strong> (object):      Circle object</p>
+</dd>
+</dl>
+<p><strong>Returns</strong>:</p>
+<blockquote>
+<div><p><strong>r_grid</strong> (array):     array of “r” values for each pixel: pixels with r&lt;1 are inside the circle, and pixels with r&gt;1 are outside the circle.</p>
+</div></blockquote>
+<p><code class="xref py py-class docutils literal notranslate"><span class="pre">imgmasks.circle.apply_circular_mask(image)</span></code></p>
+<p>Applies mask to an image</p>
+<p><strong>Args</strong>:</p>
+<blockquote>
+<div><p><strong>self</strong> (object):      Circle object</p>
+<p><strong>image</strong> (array):      input image to mask</p>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>Returns</strong>:</dt><dd><p><strong>new_image</strong> (array):  masked image</p>
+</dd>
+</dl>
 </div>
 
 

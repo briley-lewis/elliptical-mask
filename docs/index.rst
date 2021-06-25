@@ -17,13 +17,13 @@ Modules
 * `annulus <https://elliptical-mask.readthedocs.io/en/latest/annulus.html>`_
 
 Getting Started
-++++++++
++++++++++++++++
 imgmasks is now pip installable! Just install with `pip install imgmasks` and import into python per usual 
 https://pypi.org/project/imgmasks/0.2/
 You can also find the code on GitHub: https://github.com/briley-lewis/elliptical-mask 
 
 Examples / Tutorials
-++++++++
+++++++++++++++++++++
 Coming soon!
 
 Attribution:

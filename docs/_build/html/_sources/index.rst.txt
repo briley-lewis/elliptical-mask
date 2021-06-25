@@ -16,6 +16,16 @@ Modules
 * `circle <https://elliptical-mask.readthedocs.io/en/latest/circle.html>`_
 * `annulus <https://elliptical-mask.readthedocs.io/en/latest/annulus.html>`_
 
+Getting Started
++++++++++++++++
+imgmasks is now pip installable! Just install with `pip install imgmasks` and import into python per usual 
+https://pypi.org/project/imgmasks/0.2/
+You can also find the code on GitHub: https://github.com/briley-lewis/elliptical-mask 
+
+Examples / Tutorials
+++++++++++++++++++++
+Coming soon!
+
 Attribution:
 ++++++++++++
 
@@ -30,11 +40,15 @@ Briley Lewis, Ronald Lopez, Elizabeth Teng, Jason Williams
 
 **Planned updates:**
 
-Make the code work and make it pip installable!
+Adding functionality for annuli in addition to circles and ellipses
 
 
 Changelog:
 ++++++++++
+
+**0.2.0 (2021-06-23)**
+
+- Basic functionality done, but still working out the kinks
 
 **0.1.0 (2021-06-23)**
 
