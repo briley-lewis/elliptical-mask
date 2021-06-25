@@ -163,7 +163,7 @@
 <p>Once you have imgmasks installed, how can you use it? Read on for an example of how to apply an elliptical mask to an image of HL Tau! (file saved in root directory)</p>
 <div class="section" id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
-<p>first we need to import all of the relevant packages:</p>
+<p>First we need to import all of the relevant packages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imgmasks.ellipse.Ellipse</span> <span class="k">as</span> <span class="nn">Ellipse</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -184,12 +184,18 @@
 </div>
 <div class="section" id="generating-elliptical-mask">
 <h2>Generating Elliptical Mask<a class="headerlink" href="#generating-elliptical-mask" title="Permalink to this headline">¶</a></h2>
-<p>First, initialize the Ellipse object with input parameters:</p>
+<p>Initialize the Ellipse object with input parameters:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">((</span><span class="mi">112</span><span class="p">,</span><span class="mi">112</span><span class="p">),</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">225</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Next, create an ellipse mask array – the output array represents a grid of pixels where pixels inside the ellipse have value 1 and pixels outside the ellipse have value 0.</p>
+<p>Create an ellipse mask array – the output array represents a grid of pixels where pixels inside the ellipse have value 1 and pixels outside the ellipse have value 0.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mask_array</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">make_ellipse</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now, apply the mask to the image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masked_image</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply_elliptical_mask</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masked_image</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

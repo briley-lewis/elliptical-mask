@@ -24,7 +24,7 @@ You can also find the code on GitHub: https://github.com/briley-lewis/elliptical
 
 Examples / Tutorials
 ++++++++++++++++++++
-Coming soon!
+* `ellipse demo <https://elliptical-mask.readthedocs.io/en/latest/demo.html>`_
 
 Attribution:
 ++++++++++++
