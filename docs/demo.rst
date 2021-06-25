@@ -3,7 +3,7 @@
 Demo: Applying an Ellipse Mask to an image
 ==========================================
 
-Once you have imgmasks installed, how can you use it? Read on for an example of how to apply an elliptical mask to an image of HL Tau! (file saved in root directory)
+Once you have imgmasks installed, how can you use it? Read on for an example of how to apply an elliptical mask to an image of HL Tau! (image file located in imgmasks root directory)
 
 
 Imports
@@ -20,7 +20,7 @@ First we need to import all of the relevant packages:
 
 Reading in PNG image as a grayscale array
 """""""""""""""""""""""""""""""""""""""""
-This code snippet will read in any PNG as an array that is passable to apply_elliptical_mask, but you can use any image in the form of a 2D array. 
+This code snippet will read in any PNG as an array that is passable to apply_elliptical_mask, but you can use your own image in the form of a 2D array. 
 ::
 
         png = mpimg.imread("hltau225.png")
@@ -33,7 +33,7 @@ This code snippet will read in any PNG as an array that is passable to apply_ell
 
 Generating Elliptical Mask
 """"""""""""""""""""""""""
-Initialize the Ellipse object with input parameters:
+Initialize the Ellipse object with input parameters. Here, (112,112) are the coordinates of the ellipse center, 90 and 60 are the axis lengths, (225,225) is the image size, and 45 is the angle of the ellipse measured counterclockwise from the positive x-axis:
 ::
 
         e = Ellipse((112,112), 90, 60, (225, 225), theta=45)

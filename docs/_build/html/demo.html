@@ -161,7 +161,7 @@
             
   <div class="section" id="demo-applying-an-ellipse-mask-to-an-image">
 <h1>Demo: Applying an Ellipse Mask to an image<a class="headerlink" href="#demo-applying-an-ellipse-mask-to-an-image" title="Permalink to this headline">¶</a></h1>
-<p>Once you have imgmasks installed, how can you use it? Read on for an example of how to apply an elliptical mask to an image of HL Tau! (file saved in root directory)</p>
+<p>Once you have imgmasks installed, how can you use it? Read on for an example of how to apply an elliptical mask to an image of HL Tau! (image file located in imgmasks root directory)</p>
 <div class="section" id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
 <p>First we need to import all of the relevant packages:</p>
@@ -174,7 +174,7 @@
 </div>
 <div class="section" id="reading-in-png-image-as-a-grayscale-array">
 <h2>Reading in PNG image as a grayscale array<a class="headerlink" href="#reading-in-png-image-as-a-grayscale-array" title="Permalink to this headline">¶</a></h2>
-<p>This code snippet will read in any PNG as an array that is passable to apply_elliptical_mask, but you can use any image in the form of a 2D array.</p>
+<p>This code snippet will read in any PNG as an array that is passable to apply_elliptical_mask, but you can use your own image in the form of a 2D array.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">png</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">&quot;hltau225.png&quot;</span><span class="p">)</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">png</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>  <span class="c1"># if image is in RGB</span>
         <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">png</span><span class="p">[</span><span class="o">...</span><span class="p">,:</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2989</span><span class="p">,</span> <span class="mf">0.5870</span><span class="p">,</span> <span class="mf">0.1140</span><span class="p">])</span>
@@ -187,7 +187,7 @@
 </div>
 <div class="section" id="generating-elliptical-mask">
 <h2>Generating Elliptical Mask<a class="headerlink" href="#generating-elliptical-mask" title="Permalink to this headline">¶</a></h2>
-<p>Initialize the Ellipse object with input parameters:</p>
+<p>Initialize the Ellipse object with input parameters. Here, (112,112) are the coordinates of the ellipse center, 90 and 60 are the axis lengths, (225,225) is the image size, and 45 is the angle of the ellipse measured counterclockwise from the positive x-axis:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">((</span><span class="mi">112</span><span class="p">,</span><span class="mi">112</span><span class="p">),</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">225</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 </pre></div>
 </div>
