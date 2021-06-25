@@ -89,6 +89,7 @@
 <li><a class="reference internal" href="#imports">Imports</a></li>
 <li><a class="reference internal" href="#reading-in-png-image-as-a-grayscale-array">Reading in PNG image as a grayscale array</a></li>
 <li><a class="reference internal" href="#generating-elliptical-mask">Generating Elliptical Mask</a></li>
+<li><a class="reference internal" href="#applying-the-mask">Applying the Mask</a></li>
 </ul>
 </li>
 </ul>
@@ -164,7 +165,7 @@
 <div class="section" id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
 <p>First we need to import all of the relevant packages:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">imgmasks.ellipse.Ellipse</span> <span class="k">as</span> <span class="nn">Ellipse</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">imgmasks.ellipse</span> <span class="kn">import</span> <span class="n">Ellipse</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">mpimg</span>
@@ -179,23 +180,32 @@
         <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="n">png</span><span class="p">[</span><span class="o">...</span><span class="p">,:</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2989</span><span class="p">,</span> <span class="mf">0.5870</span><span class="p">,</span> <span class="mf">0.1140</span><span class="p">])</span>
 <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span> <span class="c1"># if image is already in grayscale</span>
         <span class="n">img</span> <span class="o">=</span> <span class="n">png</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="generating-elliptical-mask">
 <h2>Generating Elliptical Mask<a class="headerlink" href="#generating-elliptical-mask" title="Permalink to this headline">¶</a></h2>
 <p>Initialize the Ellipse object with input parameters:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">((</span><span class="mi">112</span><span class="p">,</span><span class="mi">112</span><span class="p">),</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">225</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">((</span><span class="mi">112</span><span class="p">,</span><span class="mi">112</span><span class="p">),</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="p">(</span><span class="mi">225</span><span class="p">,</span> <span class="mi">225</span><span class="p">),</span> <span class="n">theta</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Create an ellipse mask array – the output array represents a grid of pixels where pixels inside the ellipse have value 1 and pixels outside the ellipse have value 0.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mask_array</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">make_ellipse</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Now, apply the mask to the image:</p>
+</div>
+<div class="section" id="applying-the-mask">
+<h2>Applying the Mask<a class="headerlink" href="#applying-the-mask" title="Permalink to this headline">¶</a></h2>
+<p>Apply the mask to the image:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">masked_image</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">apply_elliptical_mask</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masked_image</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masked_image</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="s2">&quot;gray&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Save your image:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;hltau225_masked.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -12,7 +12,7 @@ Imports
 First we need to import all of the relevant packages:
 ::
 
-        import imgmasks.ellipse.Ellipse as Ellipse
+        from imgmasks.ellipse import Ellipse
         import numpy as np
         import matplotlib.pyplot as plt
         import matplotlib.image as mpimg
@@ -28,13 +28,15 @@ This code snippet will read in any PNG as an array that is passable to apply_ell
                 img = np.dot( png[...,:3], [0.2989, 0.5870, 0.1140]) 
         elif len(img.shape)==2: # if image is already in grayscale
                 img = png
+        plt.imshow(img, cmap = "gray")
+        plt.show()
 
 Generating Elliptical Mask
 """"""""""""""""""""""""""
 Initialize the Ellipse object with input parameters:
 ::
 
-        e = Ellipse((112,112), 120, 60, (225, 225), theta=45)
+        e = Ellipse((112,112), 90, 60, (225, 225), theta=45)
 
 Create an ellipse mask array -- the output array represents a grid of pixels where pixels inside the ellipse have value 1 and pixels outside the ellipse have value 0.         
 ::
@@ -42,9 +44,17 @@ Create an ellipse mask array -- the output array represents a grid of pixels whe
         mask_array = e.make_ellipse()
 
 
-Now, apply the mask to the image:
+Applying the Mask
+"""""""""""""""""
+        
+Apply the mask to the image:
 ::
 
         masked_image = e.apply_elliptical_mask(img)
-        plt.imshow(masked_image)
+        plt.imshow(masked_image, cmap = "gray")
         plt.show()
+
+Save your image:
+::
+        
+        plt.savefig("hltau225_masked.png")
