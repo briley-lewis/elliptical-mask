@@ -9,7 +9,7 @@ Once you have imgmasks installed, how can you use it? Read on for an example of 
 Imports
 """""""
 
-first we need to import all of the relevant packages:
+First we need to import all of the relevant packages:
 ::
 
         import imgmasks.ellipse.Ellipse as Ellipse
@@ -31,15 +31,20 @@ This code snippet will read in any PNG as an array that is passable to apply_ell
 
 Generating Elliptical Mask
 """"""""""""""""""""""""""
-First, initialize the Ellipse object with input parameters:
+Initialize the Ellipse object with input parameters:
 ::
 
         e = Ellipse((112,112), 120, 60, (225, 225), theta=45)
 
-Next, create an ellipse mask array -- the output array represents a grid of pixels where pixels inside the ellipse have value 1 and pixels outside the ellipse have value 0.         
+Create an ellipse mask array -- the output array represents a grid of pixels where pixels inside the ellipse have value 1 and pixels outside the ellipse have value 0.         
 ::
 
         mask_array = e.make_ellipse()
 
 
+Now, apply the mask to the image:
+::
 
+        masked_image = e.apply_elliptical_mask(img)
+        plt.imshow(masked_image)
+        plt.show()
