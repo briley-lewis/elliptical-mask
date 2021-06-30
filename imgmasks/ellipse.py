@@ -37,7 +37,7 @@ class Ellipse():
         if a > image_size[1] or b > image_size[0]:
             raise ValueError("Invalid input: b,a must be >= image_size (y,x)")
 
-    def make_ellipse(self):
+    def make_ellipse(self,inverse=False):
         """ make_ellipse
 
         Creates ellipse on a grid using the equation and the initialization parameters
@@ -74,13 +74,17 @@ class Ellipse():
 
 
         r_grid = ellipse_equation(self.center, self.a, self.b, self.pixel_array, self.theta)
-        r_grid[r_grid<1.0] = 1
-        r_grid[r_grid>1.0] = 0
+        if inverse=True:
+            r_grid[r_grid<1.0] = 0
+            r_grid[r_grid>1.0] = 1
+        else:
+            r_grid[r_grid<1.0] = 1
+            r_grid[r_grid>1.0] = 0
 
         return r_grid
 
        
-    def apply_elliptical_mask(self, image):
+    def apply_elliptical_mask(self, image,inverse=False):
         """ apply_elliptical_mask
 
         Applies mask to an image
@@ -94,7 +98,7 @@ class Ellipse():
         
         """
 
-        new_image = self.make_ellipse() * image
+        new_image = self.make_ellipse(inverse=inverse) * image
 
         return new_image
 
