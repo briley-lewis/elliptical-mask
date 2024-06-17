@@ -13,3 +13,5 @@ Documentation at https://elliptical-mask.readthedocs.io/en/latest/index.html
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/briley-lewis/elliptical-mask?include_prereleases)
 
 install me with `pip install imgmasks` :) https://pypi.org/project/imgmasks/1.0/ 
+
+[![A rectangular badge, half black half purple containing the text made at Code Astro](https://img.shields.io/badge/Made%20at-Code/Astro-blueviolet.svg)](https://semaphorep.github.io/codeastro/)
